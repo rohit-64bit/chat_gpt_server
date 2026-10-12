@@ -23,7 +23,6 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', async function (error, doc, next) {
 
-
     if (this.isNew) {
 
         if (error.name === 'MongoServerError' && error.code === 11000) {

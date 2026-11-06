@@ -80,7 +80,7 @@ router.post('/auth/verify', resetMiddleware, async (req, res) => {
 
         const token = await user.generateToken('clientID', 'session');
 
-        ResponseHandler.sendSuccess(res, { user, token }, 'Email Verified');
+        ResponseHandler.sendSuccess(res, { user: { ...user._doc, password: undefined }, token }, 'Email Verified');
 
     } catch (error) {
 
